@@ -20,6 +20,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func loginButton(sender: AnyObject) {
+        print("button pressed")
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("segue")
+    }
+    
+    
+
 
 }
 
