@@ -48,9 +48,6 @@ class webViewController: UIViewController, UIWebViewDelegate{
             
             // transition to the stat page after we get the token
             if parts.componentsSeparatedByString("=")[0] == "https://www.example.com/#access_token"{
-                let stat = ViewController()
-                //presentViewController(stat, animated: true, completion: nil)
-                
                 performSegueWithIdentifier("showStat", sender: self)
             }
         }
