@@ -21,13 +21,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func loginButton(sender: AnyObject) {
-        print("button pressed")
     }
     
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("segue")
-    }
     
     
 

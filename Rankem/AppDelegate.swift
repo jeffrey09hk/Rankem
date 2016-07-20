@@ -19,40 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let token: String = "9965006.c183884.497885c7f1fa41f2a8fa05e21a5a64ef"
-        testJSON(token)
         return true
     }
-    
-
-    func testJSON(accessToken: String){
-    
-        let path: String = "https://api.instagram.com/v1/users/self/media/recent/?access_token=\(accessToken)"
-        Alamofire.request(.GET, path).validate().responseJSON() { response in
-            
-            switch response.result {
-            case .Success:
-                print("success")
-            case .Failure(let error):
-                print(error)
-            }
-        }
-    } // end of testJSON
-    
-    func application(app: UIApplication, openURL url:NSURL, options: [String: AnyObject]) -> Bool{
-    
-        print ("called by: \(options["UIApplicationOpenURLOptionsSourceApplicationKey"])")
-        
-        print ("Scheme:\(url.scheme)")
-        print ("Query String: \(url.query)")
-    
-        for (key, value) in options{
-            print (key, value)
-        }
-        
-        return true
-    }
-    
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
