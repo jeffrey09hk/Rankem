@@ -23,9 +23,9 @@ class webViewController: UIViewController, UIWebViewDelegate{
         self.navigationController!.navigationBar.hidden = true
         let clientID: String = "c1838847866d40dfb3c2ce0a30d1d1d5"
         let redirectURI: String = "https://www.example.com"
-        let url = NSURL(string: "https://api.instagram.com/oauth/authorize/?client_id=\(clientID)&redirect_uri=\(redirectURI)&response_type=token")
+        let url = NSURL(string: "https://api.instagram.com/oauth/authorize/?client_id=\(clientID)&redirect_uri=\(redirectURI)&response_type=token&scope=basic+public_content+follower_list+comments+relationships+likes")
         
-        
+        // &scope=basic+public_content+follower_list+comments+relationships+likes <--- try to get the max_id to fetch more than 20 photos
         let request = NSURLRequest(URL: url!)
         webViewer.loadRequest(request)
         webViewer.delegate = self
@@ -49,6 +49,7 @@ class webViewController: UIViewController, UIWebViewDelegate{
             // transition to the stat page after we get the token
             if parts.componentsSeparatedByString("=")[0] == "https://www.example.com/#access_token"{
                 performSegueWithIdentifier("showStat", sender: self)
+                print(parts.componentsSeparatedByString("=")[1])
             }
             else{
                 

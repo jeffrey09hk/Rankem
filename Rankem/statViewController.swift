@@ -17,6 +17,7 @@ class statViewController: UIViewController {
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var followingLabel: UILabel!
     @IBOutlet weak var followedByLabel: UILabel!
+    @IBOutlet weak var likeCountLabel: UILabel!
     
     
     var token: String = ""
@@ -26,11 +27,14 @@ class statViewController: UIViewController {
     var followCount: String = ""
     var profilePicLink: String = ""
     
+    var likeCount: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Stat Page token: \(token)")
         getUserInfo()
         print("YOOOOO \(profilePicLink)")
+        getMediaInfo()
         
     }
     
@@ -62,7 +66,6 @@ class statViewController: UIViewController {
                     self.followingLabel.text = self.followCount
                     self.followedByLabel.text = self.fansCount
                     
-                    
                 }
             case .Failure(let error):
                 print(error)
@@ -75,31 +78,53 @@ class statViewController: UIViewController {
         // Create Url from string
         let url = NSURL(string: url)!
         
-        // Download task:
-        // - sharedSession = global NSURLCache, NSHTTPCookieStorage and NSURLCredentialStorage objects.
+        // Download picture from url:
         let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (responseData, responseUrl, error) -> Void in
             // if responseData is not null...
             if let data = responseData{
-                
                 // execute in UI thread
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     view.image = UIImage(data: data)
                 })
             }
         }
-        
         // Run task
         task.resume()
     } // end of load image from url
     
     
+    func getMediaInfo(){
+        // Sandbox mode only allow 20 pics
+        let userMediaLink: String = "https://api.instagram.com/v1/users/self/media/recent/?access_token=\(token)"
+        
+        Alamofire.request(.GET, userMediaLink).validate().responseJSON() { response in
+            switch response.result {
+                
+            case .Success:
+                if let value = response.result.value {
+                    let mediaData = JSON(value)
+                    var highestLikeCount: Int = 0
+                    var pos: Int
+                    
+                    for counter in 0...19{
+                        // get the total like count
+                        self.likeCount += mediaData["data"][counter]["likes"]["count"].intValue
+                        
+                        
+                        // Find the picture with the highest amount of likes
+                        if mediaData["data"][counter]["likes"]["count"].intValue > highestLikeCount{
+                            highestLikeCount = mediaData["data"][counter]["likes"]["count"].intValue
+                            pos = counter
+                        }
+                        
+                    }
+                    self.likeCountLabel.text = String(self.likeCount)
+                }
+            case .Failure(let error):
+                print(error)
+            }
     
+        } // end of alamofire
     
-    
-    
-    
-    
-    
-    
-    
+    }
 } // end of class
