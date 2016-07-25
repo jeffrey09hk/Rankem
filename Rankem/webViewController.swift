@@ -18,7 +18,7 @@ class webViewController: UIViewController, UIWebViewDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        webViewer.backgroundColor = UIColor.clearColor()
         // hide the navigation bar for
         self.navigationController!.navigationBar.hidden = true
         let clientID: String = "c1838847866d40dfb3c2ce0a30d1d1d5"
@@ -32,6 +32,18 @@ class webViewController: UIViewController, UIWebViewDelegate{
       
         
     } // end of viewDidLoad
+    
+    
+    // make the webViewer scale with the size of the phone
+    func webViewDidFinishLoad(webView: UIWebView) {
+        let contentSize: CGSize = webViewer.scrollView.contentSize
+        let viewSize: CGSize = webViewer.bounds.size
+        let rw = viewSize.width / contentSize.width
+        
+        webViewer.scrollView.minimumZoomScale = rw
+        webViewer.scrollView.maximumZoomScale = rw
+        webViewer.scrollView.zoomScale = rw
+    }
     
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool{

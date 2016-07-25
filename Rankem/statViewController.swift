@@ -39,6 +39,7 @@ class statViewController: UIViewController {
         print("YOOOOO \(profilePicLink)")
         getMediaInfo()
         imSuperPopular()
+        //millionaire()
         
     }
     
@@ -177,10 +178,37 @@ class statViewController: UIViewController {
         let weightedComments = self.commentCount * 5
         let weightedFans = self.fansCount * 10
         
-        var score: Int = weightedComments + weightedFans + self.likeCount
+        let score: Int = weightedComments + weightedFans + self.likeCount
         self.rankingLabel.text = String(score)
     
     }
+    
+    
+//    func millionaire(){
+//    
+//        var aryA:[String] = []
+//        var aryB:[String] = []
+//        
+//        var array: [[String]] = []
+//        
+//        array.append(["cliff", "Jeff", "Randy"])
+//        var array2 = ["cliff", "chase", "ravi"]
+//        
+//        array.append(array2)
+//        
+//        print(array)
+//        
+//    
+//        for x in 0...1000{
+//            aryA.append("i am aryA with value \(x)")
+//            aryB.append("i am aryB with value \(x)")
+//
+//        }
+//        
+//        let bigAry = [aryA, aryB].flatten()
+//        print ("this is the size of the big ary: \(bigAry.count)")
+//        
+//    }
     
     
     
