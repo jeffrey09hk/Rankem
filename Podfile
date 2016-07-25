@@ -8,6 +8,7 @@ target 'Rankem' do
 # Pods for Rankem
   pod 'SwiftyJSON'
   pod 'Alamofire', '~> 3.4'
+  pod 'RealmSwift'
 
 end
 

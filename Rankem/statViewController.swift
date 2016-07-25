@@ -11,7 +11,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class statViewController: UIViewController {
+class statViewController: UIViewController{
     
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var fullnameLabel: UILabel!
@@ -20,6 +20,7 @@ class statViewController: UIViewController {
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var topPicture: UIImageView!
     @IBOutlet weak var rankingLabel: UILabel!
+    @IBOutlet weak var statScroll: UIScrollView!
     
     
     var token: String = ""
@@ -39,9 +40,17 @@ class statViewController: UIViewController {
         print("YOOOOO \(profilePicLink)")
         getMediaInfo()
         imSuperPopular()
-        //millionaire()
-        
+        getFansList()
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.navigationController!.navigationBar.hidden = true
+        navigationController?.interactivePopGestureRecognizer?.enabled = false
+
+    }
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
+    }
+    
     
     func getUserInfo(){
     
@@ -150,85 +159,44 @@ class statViewController: UIViewController {
         } // end of alamofire
     } // end of getMediaInfo
     
-    func imPopular(){
-        
-        // source: https://paragonie.com/blog/2015/06/quantifying-popularity-in-real-time-for-high-volume-websites
-        
-        print("calculate score")
-        
-        // 1 comment is worth 2 likes
-        let weightedComments = self.commentCount * 2
-        
-        // the average score for a particular item
-        let itemAvgScore = (weightedComments + self.likeCount) / 20
-        
-        let voters = self.likeCount + weightedComments
-        
-        let score: Int = ((itemAvgScore * voters) + (self.fansCount * 1 )) / (voters + 1)
-        
-        print("the weighted comments count: \(weightedComments)")
-        
-        self.rankingLabel.text = String(score)
-    
-    }
-    
     
     func imSuperPopular(){
         
         let weightedComments = self.commentCount * 5
         let weightedFans = self.fansCount * 10
-        
         let score: Int = weightedComments + weightedFans + self.likeCount
         self.rankingLabel.text = String(score)
     
     }
     
+    func getFansList(){
     
-//    func millionaire(){
-//    
-//        var aryA:[String] = []
-//        var aryB:[String] = []
-//        
-//        var array: [[String]] = []
-//        
-//        array.append(["cliff", "Jeff", "Randy"])
-//        var array2 = ["cliff", "chase", "ravi"]
-//        
-//        array.append(array2)
-//        
-//        print(array)
-//        
-//    
-//        for x in 0...1000{
-//            aryA.append("i am aryA with value \(x)")
-//            aryB.append("i am aryB with value \(x)")
-//
-//        }
-//        
-//        let bigAry = [aryA, aryB].flatten()
-//        print ("this is the size of the big ary: \(bigAry.count)")
-//        
-//    }
+        let fansListLink: String = "https://api.instagram.com/v1/users/self/followed-by?access_token=\(token)"
+        
+        Alamofire.request(.GET, fansListLink).validate().responseJSON() { response in
+            switch response.result {
+                
+            case .Success:
+                if let value = response.result.value {
+                    let userData = JSON(value)
+                    
+                    print(userData)
+                }
+            case .Failure(let error):
+                print(error)
+            }
+        }
+        
+    } // end of getFollowList
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destVC: DetailStatViewController = segue.destinationViewController as! DetailStatViewController
+        
+        // passing the token to the DetailStatViewController
+        destVC.token = self.token
+        destVC.userID = self.userID
+    }
+
     
     
 } // end of class

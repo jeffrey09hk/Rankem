@@ -19,7 +19,7 @@ class webViewController: UIViewController, UIWebViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         webViewer.backgroundColor = UIColor.clearColor()
-        // hide the navigation bar for
+        // hide the navigation bar
         self.navigationController!.navigationBar.hidden = true
         let clientID: String = "c1838847866d40dfb3c2ce0a30d1d1d5"
         let redirectURI: String = "https://www.example.com"
@@ -30,7 +30,6 @@ class webViewController: UIViewController, UIWebViewDelegate{
         webViewer.loadRequest(request)
         webViewer.delegate = self
       
-        
     } // end of viewDidLoad
     
     
