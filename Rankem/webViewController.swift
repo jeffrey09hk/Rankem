@@ -56,7 +56,6 @@ class webViewController: UIViewController, UIWebViewDelegate{
             token = parts.componentsSeparatedByString("=")[1]
 //            print ("this is the part: \(token)")
             
-            
             // transition to the stat page after we get the token
             if parts.componentsSeparatedByString("=")[0] == "https://www.example.com/#access_token"{
                 performSegueWithIdentifier("showStat", sender: self)

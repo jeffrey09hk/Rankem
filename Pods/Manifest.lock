@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.4.1)
+  - MBCircularProgressBar (0.3.4)
   - Realm (1.0.2):
     - Realm/Headers (= 1.0.2)
   - Realm/Headers (1.0.2)
@@ -9,15 +10,17 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
+  - MBCircularProgressBar
   - RealmSwift
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  MBCircularProgressBar: ff3b8e2f441214d9ee122a24ba0d4d00cc7de881
   Realm: 9d5c46a4d7d27958530a8dfc58f63a99e5c2cba3
   RealmSwift: 82f3ac5e24530143dddfde2033acc0d308f27d96
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 43497170cab5cbbebf8370a84e6892f32874bd6e
+PODFILE CHECKSUM: 6bf165226e0afa020fbda42636d854ad6d92d2af
 
 COCOAPODS: 1.0.1

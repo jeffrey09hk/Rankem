@@ -9,6 +9,7 @@ target 'Rankem' do
   pod 'SwiftyJSON'
   pod 'Alamofire', '~> 3.4'
   pod 'RealmSwift'
+  pod 'MBCircularProgressBar'
 
 end
 
