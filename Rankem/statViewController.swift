@@ -10,17 +10,19 @@ import Foundation
 import UIKit
 import SwiftyJSON
 import Alamofire
+import MBCircularProgressBar
 
 class statViewController: UIViewController{
     
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var fullnameLabel: UILabel!
-    @IBOutlet weak var followingLabel: UILabel!
-    @IBOutlet weak var followedByLabel: UILabel!
+//    @IBOutlet weak var followingLabel: UILabel!
+//    @IBOutlet weak var followedByLabel: UILabel!
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var topPicture: UIImageView!
-    @IBOutlet weak var rankingLabel: UILabel!
+//    @IBOutlet weak var rankingLabel: UILabel!
     @IBOutlet weak var statScroll: UIScrollView!
+    @IBOutlet weak var rankingBar: MBCircularProgressBarView!
     
     
     var token: String = ""
@@ -40,13 +42,11 @@ class statViewController: UIViewController{
         print("YOOOOO \(profilePicLink)")
         getMediaInfo()
         imSuperPopular()
-        getFansList()
     }
     
     override func viewDidAppear(animated: Bool) {
         self.navigationController!.navigationBar.hidden = true
         navigationController?.interactivePopGestureRecognizer?.enabled = false
-
     }
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
     }
@@ -79,8 +79,8 @@ class statViewController: UIViewController{
                     
                     // Assign value to labels on page
                     self.fullnameLabel.text = self.fullName
-                    self.followingLabel.text = self.followCount
-                    self.followedByLabel.text = String(self.fansCount)
+//                    self.followingLabel.text = self.followCount
+//                    self.followedByLabel.text = String(self.fansCount)
                     
                     self.imSuperPopular()
                     
@@ -145,10 +145,13 @@ class statViewController: UIViewController{
                     // get the thumbnail of the most liked picture and link to the imgView
                     let topPicLink = String(mediaData["data"][pos]["images"]["thumbnail"]["url"])
                     
+                    
+                    // Make the picture circular
                     statViewController.loadImageFromUrl(topPicLink, view: self.topPicture)
                     self.topPicture.layer.cornerRadius = self.profilePic.frame.size.height / 2
-                    self.topPicture.layer.cornerRadius = self.profilePic.frame.size.width / 2
+                     self.topPicture.layer.cornerRadius = self.profilePic.frame.size.width / 2
                     self.topPicture.clipsToBounds = true
+                    
                     
                     self.imSuperPopular()
                     
@@ -165,29 +168,12 @@ class statViewController: UIViewController{
         let weightedComments = self.commentCount * 5
         let weightedFans = self.fansCount * 10
         let score: Int = weightedComments + weightedFans + self.likeCount
-        self.rankingLabel.text = String(score)
-    
+//        self.rankingLabel.text = String(score)
+        self.rankingBar.maxValue = CGFloat(score)
+        self.rankingBar.setValue(CGFloat(score), animateWithDuration: 0.8)
+        self.rankingBar.progressLineWidth = (CGFloat(3.5))
     }
     
-    func getFansList(){
-    
-        let fansListLink: String = "https://api.instagram.com/v1/users/self/followed-by?access_token=\(token)"
-        
-        Alamofire.request(.GET, fansListLink).validate().responseJSON() { response in
-            switch response.result {
-                
-            case .Success:
-                if let value = response.result.value {
-                    let userData = JSON(value)
-                    
-                    print(userData)
-                }
-            case .Failure(let error):
-                print(error)
-            }
-        }
-        
-    } // end of getFollowList
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destVC: DetailStatViewController = segue.destinationViewController as! DetailStatViewController

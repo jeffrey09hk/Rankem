@@ -10,6 +10,7 @@ target 'Rankem' do
   pod 'Alamofire', '~> 3.4'
   pod 'RealmSwift'
   pod 'MBCircularProgressBar'
+  pod ‘JBChartView’ 
 
 end
 

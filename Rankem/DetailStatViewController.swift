@@ -17,7 +17,7 @@ import MBCircularProgressBar
 class DetailStatViewController: UIViewController{
     
     
-    @IBOutlet weak var progressViewBar: MBCircularProgressBarView!
+
 
     var token: String = ""
     var userID: String = ""
@@ -25,13 +25,10 @@ class DetailStatViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Show the navigationBar
         self.navigationController!.navigationBar.hidden = false
-        //self.manageCircularProgressBar()
-        //progressViewBar.setValue(testVal, animateWithDuration: 300)
     }
     
-    @IBAction func testSlider(sender: UISlider) {
-        progressViewBar.value = CGFloat(sender.value)
-    }
     
 }

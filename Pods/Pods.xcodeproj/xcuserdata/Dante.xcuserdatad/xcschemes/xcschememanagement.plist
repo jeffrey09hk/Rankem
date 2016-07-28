@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JBChartView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBCircularProgressBar-MBCircularProgressBar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,7 +47,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5249913183A2D8D0A5E76AEE7D217E17</key>
+		<key>177C0A95B95A464D1536D6CC9C83FFA0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5B603BBBB25D32CCB7E4A7349DF6DE72</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +62,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7D4DAA245C7645C2BE3C3EB9223077FD</key>
+		<key>7A9800437BB281F9C9398D095ACCE630</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7D43496C567808766805A2B98F421449</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>92A5215A7931B2B916961CBD1707B7E8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A3DE3194DBA6CCDA6FD32DAD3A81E809</key>
+		<key>C3E15BBF3E72843A0D0EB56DB50F6018</key>
 		<dict>
 			<key>primary</key>
 			<true/>
