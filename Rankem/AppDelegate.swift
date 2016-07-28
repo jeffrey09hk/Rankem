@@ -27,6 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
+        // Make the status bar white
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        
+
+        
         return true
     }
     

@@ -94,28 +94,19 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="122" id="7PY-3W-uq7"/>
                                     <constraint firstAttribute="height" constant="122" id="Mcc-0k-WEx"/>
+                                    <constraint firstAttribute="width" secondItem="xzc-S8-YfO" secondAttribute="height" multiplier="1:1" id="rqK-TR-vzt"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="rqK-TR-vzt"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="rqK-TR-vzt"/>
+                                    </mask>
+                                </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1v-sB-xzK">
-                                <rect key="frame" x="118" y="74" width="39" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="CWj-pG-frd"/>
-                                    <constraint firstAttribute="width" constant="39" id="JBE-mh-PfW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FullName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYN-d9-LCD">
-                                <rect key="frame" x="217" y="74" width="72" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="8QG-DY-fcN"/>
-                                    <constraint firstAttribute="width" constant="72" id="xVr-wX-PFx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <scrollView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qba-oP-WOH">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
@@ -266,11 +257,15 @@
                                             <constraint firstItem="BaN-oh-9em" firstAttribute="centerY" secondItem="pAQ-q9-Ydf" secondAttribute="centerY" id="hlS-Z6-VW4"/>
                                             <constraint firstItem="BaN-oh-9em" firstAttribute="leading" secondItem="pAQ-q9-Ydf" secondAttribute="trailing" constant="80" id="kIR-9h-NXF"/>
                                             <constraint firstItem="Vq1-RF-rNu" firstAttribute="leading" secondItem="xfh-m4-FYY" secondAttribute="leading" constant="75" id="ko5-G2-r8Q"/>
-                                            <constraint firstItem="4Gv-ur-2sQ" firstAttribute="top" secondItem="xfh-m4-FYY" secondAttribute="top" constant="34" id="lhC-lW-AVY"/>
+                                            <constraint firstItem="4Gv-ur-2sQ" firstAttribute="top" secondItem="xfh-m4-FYY" secondAttribute="top" constant="34" id="lhC-lW-AVY">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="29"/>
+                                            </constraint>
                                             <constraint firstItem="BaN-oh-9em" firstAttribute="top" secondItem="bbS-tb-i0t" secondAttribute="bottom" constant="9" id="mca-Uo-UdE"/>
                                             <constraint firstItem="QfD-UD-jv1" firstAttribute="leading" secondItem="Vq1-RF-rNu" secondAttribute="trailing" constant="80" id="rjP-JV-ArG"/>
                                             <constraint firstItem="02B-I3-tQv" firstAttribute="centerX" secondItem="CQ9-69-kLA" secondAttribute="centerX" id="s2K-V8-XRW"/>
-                                            <constraint firstAttribute="height" constant="700" id="xIP-Cg-YVN"/>
+                                            <constraint firstAttribute="height" constant="700" id="xIP-Cg-YVN">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="742"/>
+                                            </constraint>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
@@ -366,7 +361,9 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="xfh-m4-FYY" secondAttribute="trailing" id="8Oc-nW-m6b"/>
-                                    <constraint firstAttribute="bottom" secondItem="xfh-m4-FYY" secondAttribute="bottom" id="Fcj-4V-2uc"/>
+                                    <constraint firstAttribute="bottom" secondItem="xfh-m4-FYY" secondAttribute="bottom" id="Fcj-4V-2uc">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="-266"/>
+                                    </constraint>
                                     <constraint firstItem="xfh-m4-FYY" firstAttribute="top" secondItem="qba-oP-WOH" secondAttribute="top" id="t6G-dq-DR8"/>
                                     <constraint firstItem="xfh-m4-FYY" firstAttribute="width" secondItem="qba-oP-WOH" secondAttribute="width" id="u8J-bG-GIN"/>
                                     <constraint firstItem="xfh-m4-FYY" firstAttribute="leading" secondItem="qba-oP-WOH" secondAttribute="leading" id="xdV-ls-z9K"/>
@@ -383,7 +380,8 @@
                                         <exclude reference="xdV-ls-z9K"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="224" width="400" height="476"/>
                                     <mask key="subviews">
                                         <include reference="xfh-m4-FYY"/>
                                     </mask>
@@ -396,24 +394,40 @@
                                     </mask>
                                 </variation>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FullName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYN-d9-LCD">
+                                <rect key="frame" x="217" y="74" width="72" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="8QG-DY-fcN"/>
+                                    <constraint firstAttribute="width" constant="72" id="xVr-wX-PFx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.10980392156862745" green="0.19215686274509802" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="qba-oP-WOH" secondAttribute="trailing" id="BM5-Ff-cGv"/>
                             <constraint firstItem="qba-oP-WOH" firstAttribute="leading" secondItem="fL5-xm-q3l" secondAttribute="leading" id="BPd-K5-z6k"/>
-                            <constraint firstItem="xzc-S8-YfO" firstAttribute="top" secondItem="s1v-sB-xzK" secondAttribute="bottom" constant="19" id="EEB-Gh-01v"/>
-                            <constraint firstItem="xzc-S8-YfO" firstAttribute="top" secondItem="uYN-d9-LCD" secondAttribute="bottom" constant="19" id="Xkz-cH-TTE"/>
+                            <constraint firstItem="xzc-S8-YfO" firstAttribute="top" secondItem="uYN-d9-LCD" secondAttribute="bottom" constant="19" id="Xkz-cH-TTE">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-71"/>
+                            </constraint>
                             <constraint firstItem="qba-oP-WOH" firstAttribute="top" secondItem="xzc-S8-YfO" secondAttribute="bottom" constant="30" id="aRZ-JB-4wD">
-                                <variation key="heightClass=regular-widthClass=compact" constant="14"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="50"/>
                             </constraint>
                             <constraint firstItem="NNi-uh-rsR" firstAttribute="top" secondItem="qba-oP-WOH" secondAttribute="bottom" id="bBP-Yi-q4X"/>
-                            <constraint firstItem="uYN-d9-LCD" firstAttribute="leading" secondItem="xzc-S8-YfO" secondAttribute="trailing" constant="-44" id="gNz-0Y-UA2"/>
-                            <constraint firstItem="uYN-d9-LCD" firstAttribute="leading" secondItem="s1v-sB-xzK" secondAttribute="trailing" constant="60" id="j3c-GC-ZgN"/>
-                            <constraint firstItem="xzc-S8-YfO" firstAttribute="top" secondItem="uYN-d9-LCD" secondAttribute="bottom" constant="19" id="kmB-MO-lFQ"/>
-                            <constraint firstItem="xzc-S8-YfO" firstAttribute="centerX" secondItem="fL5-xm-q3l" secondAttribute="centerX" id="rVn-A0-ZK3"/>
+                            <constraint firstItem="uYN-d9-LCD" firstAttribute="leading" secondItem="xzc-S8-YfO" secondAttribute="trailing" constant="-44" id="gNz-0Y-UA2">
+                                <variation key="heightClass=regular-widthClass=compact" constant="41"/>
+                            </constraint>
+                            <constraint firstItem="xzc-S8-YfO" firstAttribute="top" secondItem="uYN-d9-LCD" secondAttribute="bottom" constant="19" id="kmB-MO-lFQ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-71"/>
+                            </constraint>
+                            <constraint firstItem="xzc-S8-YfO" firstAttribute="centerX" secondItem="fL5-xm-q3l" secondAttribute="centerX" id="rVn-A0-ZK3">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-104"/>
+                            </constraint>
                             <constraint firstItem="xfh-m4-FYY" firstAttribute="width" secondItem="fL5-xm-q3l" secondAttribute="width" id="raP-5x-fNP"/>
                             <constraint firstItem="xzc-S8-YfO" firstAttribute="top" secondItem="TM8-Mf-sQO" secondAttribute="bottom" constant="50" id="zrY-xM-ZwE">
-                                <variation key="heightClass=regular-widthClass=compact" constant="66"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
                             </constraint>
                         </constraints>
                         <variation key="default">
