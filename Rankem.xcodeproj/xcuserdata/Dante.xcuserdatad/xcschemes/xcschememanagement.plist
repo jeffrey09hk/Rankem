@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>JBChart.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>Rankem.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +18,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>FE68EEE01D3823E5005EF0DF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEE48F4F1D4ABE9700A832A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

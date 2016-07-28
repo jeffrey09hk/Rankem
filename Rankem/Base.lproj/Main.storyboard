@@ -441,23 +441,39 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.10980392247438431" green="0.19215686619281769" blue="0.26666668057441711" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAh-6v-kBB">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="15" y="454" width="365" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.10980392156862745" green="0.19215686274509802" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="xAt-hu-Pbb" firstAttribute="top" secondItem="uF0-GH-Xty" secondAttribute="bottom" constant="50" id="8VA-NZ-qRO"/>
+                            <constraint firstItem="sAh-6v-kBB" firstAttribute="top" secondItem="xAt-hu-Pbb" secondAttribute="bottom" constant="71" id="8zP-eb-1cr"/>
                             <constraint firstItem="xAt-hu-Pbb" firstAttribute="leading" secondItem="cY7-az-Cvr" secondAttribute="leadingMargin" constant="-5" id="Hq6-gL-uuT"/>
+                            <constraint firstItem="sAh-6v-kBB" firstAttribute="leading" secondItem="cY7-az-Cvr" secondAttribute="leadingMargin" constant="-5" id="ISe-Ih-0E0"/>
                             <constraint firstItem="xAt-hu-Pbb" firstAttribute="trailing" secondItem="cY7-az-Cvr" secondAttribute="trailingMargin" id="jOv-Av-dkU"/>
+                            <constraint firstItem="QuB-8R-V7I" firstAttribute="top" secondItem="sAh-6v-kBB" secondAttribute="bottom" constant="225" id="lFK-RC-CEd"/>
                             <constraint firstItem="QuB-8R-V7I" firstAttribute="top" secondItem="xAt-hu-Pbb" secondAttribute="bottom" constant="317" id="u80-PI-Vpd"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="BLY-ul-hmW"/>
                                 <exclude reference="xAt-hu-Pbb"/>
+                                <exclude reference="sAh-6v-kBB"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="8VA-NZ-qRO"/>
                                 <exclude reference="Hq6-gL-uuT"/>
                                 <exclude reference="jOv-Av-dkU"/>
+                                <exclude reference="8zP-eb-1cr"/>
+                                <exclude reference="ISe-Ih-0E0"/>
+                                <exclude reference="lFK-RC-CEd"/>
                                 <exclude reference="u80-PI-Vpd"/>
                             </mask>
                         </variation>
@@ -465,16 +481,21 @@
                             <mask key="subviews">
                                 <exclude reference="BLY-ul-hmW"/>
                                 <include reference="xAt-hu-Pbb"/>
+                                <include reference="sAh-6v-kBB"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="8VA-NZ-qRO"/>
                                 <include reference="Hq6-gL-uuT"/>
                                 <include reference="jOv-Av-dkU"/>
+                                <include reference="8zP-eb-1cr"/>
+                                <include reference="ISe-Ih-0E0"/>
+                                <include reference="lFK-RC-CEd"/>
                                 <include reference="u80-PI-Vpd"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="footerLabel" destination="sAh-6v-kBB" id="nMK-8J-fLL"/>
                         <outlet property="statChartView" destination="xAt-hu-Pbb" id="xNO-rw-lAK"/>
                         <segue destination="59d-BX-5yl" kind="unwind" identifier="uwindToStat" unwindAction="unwindToMenu:" id="a6c-AN-cOZ"/>
                     </connections>

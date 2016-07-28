@@ -16,14 +16,38 @@
 		FE68EEEF1D3823E5005EF0DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE68EEED1D3823E5005EF0DF /* LaunchScreen.storyboard */; };
 		FEAED3C91D3ECA1100FE4F93 /* statViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAED3C81D3ECA1100FE4F93 /* statViewController.swift */; };
 		FEBCC81C1D46AD9A00995737 /* DetailStatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBCC81B1D46AD9A00995737 /* DetailStatViewController.swift */; };
+		FEE48F531D4ABE9700A832A3 /* JBChart.h in Headers */ = {isa = PBXBuildFile; fileRef = FEE48F521D4ABE9700A832A3 /* JBChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FEE48F551D4ABE9800A832A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE68EED91D3823E5005EF0DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEE48F4F1D4ABE9700A832A3;
+			remoteInfo = JBChart;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FEE48F5C1D4ABE9800A832A3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1D691AE8C6FD495C58BCFA78 /* Pods_Rankem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rankem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54EDC280ED6A84E3999D7460 /* Pods-Rankem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rankem.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rankem/Pods-Rankem.release.xcconfig"; sourceTree = "<group>"; };
 		6EB1F1F83927CAC05AE065E3 /* Pods-Rankem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rankem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rankem/Pods-Rankem.debug.xcconfig"; sourceTree = "<group>"; };
 		FE20E9521D39489A0061084F /* webViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webViewController.swift; sourceTree = "<group>"; };
-		FE68EEE11D3823E5005EF0DF /* Rankem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rankem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE68EEE11D3823E5005EF0DF /* Rankem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Rankem.app; path = "/Users/Dante/Documents/Xcode Projects/Rankem/build/Debug-iphoneos/Rankem.app"; sourceTree = "<absolute>"; };
 		FE68EEE41D3823E5005EF0DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE68EEE61D3823E5005EF0DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FE68EEE91D3823E5005EF0DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -32,6 +56,9 @@
 		FE68EEF01D3823E5005EF0DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEAED3C81D3ECA1100FE4F93 /* statViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statViewController.swift; sourceTree = "<group>"; };
 		FEBCC81B1D46AD9A00995737 /* DetailStatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailStatViewController.swift; sourceTree = "<group>"; };
+		FEE48F501D4ABE9700A832A3 /* JBChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JBChart.framework; path = "/Users/Dante/Documents/Xcode Projects/Rankem/build/Debug-iphoneos/JBChart.framework"; sourceTree = "<absolute>"; };
+		FEE48F521D4ABE9700A832A3 /* JBChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBChart.h; sourceTree = "<group>"; };
+		FEE48F541D4ABE9700A832A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +67,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F4C97345ACF69C13E50C10F /* Pods_Rankem.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE48F4C1D4ABE9700A832A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,17 +102,9 @@
 			children = (
 				FE68EEE31D3823E5005EF0DF /* Rankem */,
 				BA4294F192362AAFF460AA13 /* Pods */,
+				FEE48F511D4ABE9700A832A3 /* JBChart */,
 				69EFD02CDBD022D88651A83E /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		FE68EEE21D3823E5005EF0DF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FE68EEE11D3823E5005EF0DF /* Rankem.app */,
-			);
-			name = Products;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		FE68EEE31D3823E5005EF0DF /* Rankem */ = {
@@ -93,12 +119,31 @@
 				FE68EEEB1D3823E5005EF0DF /* Assets.xcassets */,
 				FE68EEED1D3823E5005EF0DF /* LaunchScreen.storyboard */,
 				FE68EEF01D3823E5005EF0DF /* Info.plist */,
-				FE68EEE21D3823E5005EF0DF /* Products */,
 			);
 			path = Rankem;
 			sourceTree = "<group>";
 		};
+		FEE48F511D4ABE9700A832A3 /* JBChart */ = {
+			isa = PBXGroup;
+			children = (
+				FEE48F521D4ABE9700A832A3 /* JBChart.h */,
+				FEE48F541D4ABE9700A832A3 /* Info.plist */,
+			);
+			path = JBChart;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FEE48F4D1D4ABE9700A832A3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEE48F531D4ABE9700A832A3 /* JBChart.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		FE68EEE01D3823E5005EF0DF /* Rankem */ = {
@@ -111,15 +156,35 @@
 				FE68EEDF1D3823E5005EF0DF /* Resources */,
 				5834212FD4B31D5A3BBFF63C /* [CP] Embed Pods Frameworks */,
 				E54ED5BF0ED14AF53BDB64FD /* [CP] Copy Pods Resources */,
+				FEE48F5C1D4ABE9800A832A3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FEE48F561D4ABE9800A832A3 /* PBXTargetDependency */,
 			);
 			name = Rankem;
 			productName = Rankem;
 			productReference = FE68EEE11D3823E5005EF0DF /* Rankem.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FEE48F4F1D4ABE9700A832A3 /* JBChart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEE48F5B1D4ABE9800A832A3 /* Build configuration list for PBXNativeTarget "JBChart" */;
+			buildPhases = (
+				FEE48F4B1D4ABE9700A832A3 /* Sources */,
+				FEE48F4C1D4ABE9700A832A3 /* Frameworks */,
+				FEE48F4D1D4ABE9700A832A3 /* Headers */,
+				FEE48F4E1D4ABE9700A832A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JBChart;
+			productName = JBChart;
+			productReference = FEE48F501D4ABE9700A832A3 /* JBChart.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -134,6 +199,9 @@
 					FE68EEE01D3823E5005EF0DF = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
+					FEE48F4F1D4ABE9700A832A3 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 				};
 			};
 			buildConfigurationList = FE68EEDC1D3823E5005EF0DF /* Build configuration list for PBXProject "Rankem" */;
@@ -145,11 +213,12 @@
 				Base,
 			);
 			mainGroup = FE68EED81D3823E5005EF0DF;
-			productRefGroup = FE68EEE21D3823E5005EF0DF /* Products */;
+			productRefGroup = FE68EED81D3823E5005EF0DF;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				FE68EEE01D3823E5005EF0DF /* Rankem */,
+				FEE48F4F1D4ABE9700A832A3 /* JBChart */,
 			);
 		};
 /* End PBXProject section */
@@ -162,6 +231,13 @@
 				FE68EEEF1D3823E5005EF0DF /* LaunchScreen.storyboard in Resources */,
 				FE68EEEC1D3823E5005EF0DF /* Assets.xcassets in Resources */,
 				FE68EEEA1D3823E5005EF0DF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE48F4E1D4ABE9700A832A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +304,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FEE48F4B1D4ABE9700A832A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FEE48F561D4ABE9800A832A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEE48F4F1D4ABE9700A832A3 /* JBChart */;
+			targetProxy = FEE48F551D4ABE9800A832A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FE68EEE81D3823E5005EF0DF /* Main.storyboard */ = {
@@ -359,6 +450,44 @@
 			};
 			name = Release;
 		};
+		FEE48F591D4ABE9800A832A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JBChart/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.affixgrp.JBChart;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FEE48F5A1D4ABE9800A832A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JBChart/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.affixgrp.JBChart;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -379,6 +508,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		FEE48F5B1D4ABE9800A832A3 /* Build configuration list for PBXNativeTarget "JBChart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEE48F591D4ABE9800A832A3 /* Debug */,
+				FEE48F5A1D4ABE9800A832A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

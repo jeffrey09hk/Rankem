@@ -179,8 +179,8 @@ class statViewController: UIViewController{
         let destVC: DetailStatViewController = segue.destinationViewController as! DetailStatViewController
         
         // passing the token to the DetailStatViewController
-        destVC.token = self.token
-        destVC.userID = self.userID
+       //  destVC.token = self.token
+//        destVC.userID = self.userID
     }
 
     

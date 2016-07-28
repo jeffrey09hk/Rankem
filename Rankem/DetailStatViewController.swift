@@ -15,9 +15,10 @@ import MBCircularProgressBar
 import JBChartView
 
 
-class DetailStatViewController: UIViewController, JBChartViewDataSource, JBChartViewDelegate{
+class DetailStatViewController: UIViewController, JBBarChartViewDataSource, JBBarChartViewDelegate{
     
     
+    @IBOutlet weak var footerLabel: UILabel!
     @IBOutlet weak var statChartView: JBBarChartView!
     
     var token: String = ""
@@ -74,17 +75,28 @@ class DetailStatViewController: UIViewController, JBChartViewDataSource, JBChart
         return UInt(chartData.count)
     }
     
-    func barChartView(barCharView: JBBarChartView, heightForBarViewAtIndex index: UInt) -> CGFloat{
+    func barChartView(barChartView: JBBarChartView, heightForBarViewAtIndex index: UInt) -> CGFloat{
         return CGFloat(chartData[Int(index)])
     }
     
-    func barChartView(barCharView: JBBarChartView, colorForBarViewAtIndex index: UInt) -> UIColor!{
+    func barChartView(barChartView: JBBarChartView, colorForBarViewAtIndex index: UInt) -> UIColor!{
         return (index % 2 == 0) ? UIColor.lightGrayColor() : UIColor.cyanColor()
     }
     
     // MARK: Delegates
     
+    func barChartView(barChartView: JBBarChartView, didSelectBarAtIndex index: UInt){
     
+        let data = chartData[Int(index)]
+        let key = chartLegend[Int(index)]
+        
+        footerLabel.text = "the data is: \(data) and key: \(key)"
+    }
+    
+    func didDeselectBarChartView(barChartView: JBBarChartView!){
+    
+        footerLabel.text = ""
+    }
     
     
     
