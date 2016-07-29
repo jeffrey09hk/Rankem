@@ -104,6 +104,8 @@
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
+                                        <exclude reference="7PY-3W-uq7"/>
+                                        <exclude reference="Mcc-0k-WEx"/>
                                         <include reference="rqK-TR-vzt"/>
                                     </mask>
                                 </variation>
@@ -438,7 +440,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLY-ul-hmW">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAt-hu-Pbb" customClass="JBBarChartView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAt-hu-Pbb" customClass="JBLineChartView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.10980392247438431" green="0.19215686619281769" blue="0.26666668057441711" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -493,8 +495,8 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="footerLabel" destination="sAh-6v-kBB" id="nMK-8J-fLL"/>
-                        <outlet property="statChartView" destination="xAt-hu-Pbb" id="xNO-rw-lAK"/>
+                        <outlet property="infoLabel" destination="sAh-6v-kBB" id="LYp-Y6-VLA"/>
+                        <outlet property="statChartView" destination="xAt-hu-Pbb" id="bE1-RH-NGE"/>
                         <segue destination="59d-BX-5yl" kind="unwind" identifier="uwindToStat" unwindAction="unwindToMenu:" id="a6c-AN-cOZ"/>
                     </connections>
                 </viewController>

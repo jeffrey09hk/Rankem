@@ -15,11 +15,11 @@ import MBCircularProgressBar
 import JBChartView
 
 
-class DetailStatViewController: UIViewController, JBBarChartViewDataSource, JBBarChartViewDelegate{
+class DetailStatViewController: UIViewController, JBLineChartViewDataSource, JBLineChartViewDelegate{
     
     
-    @IBOutlet weak var footerLabel: UILabel!
-    @IBOutlet weak var statChartView: JBBarChartView!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var statChartView: JBLineChartView!
     
     var token: String = ""
     var userID: String = ""
@@ -46,12 +46,12 @@ class DetailStatViewController: UIViewController, JBBarChartViewDataSource, JBBa
         
         
         // header footer
-        var footer = UILabel(frame: CGRectMake(0, 0, statChartView.frame.width, 16))
+        let footer = UILabel(frame: CGRectMake(0, 0, statChartView.frame.width, 16))
         footer.textColor = UIColor.whiteColor()
         footer.text = "\(chartLegend[0]) to \(chartLegend[chartLegend.count - 1])"
         footer.textAlignment = NSTextAlignment.Center
         
-        var header = UILabel(frame: CGRectMake(0, 0, statChartView.frame.width, 50))
+        let header = UILabel(frame: CGRectMake(0, 0, statChartView.frame.width, 50))
         header.textColor = UIColor.whiteColor()
         header.font = UIFont.systemFontOfSize(24)
         header.text = "this is the header"
@@ -86,33 +86,61 @@ class DetailStatViewController: UIViewController, JBBarChartViewDataSource, JBBa
     } // end of showChart
     
     
-    // MARK: Datasource
+    // MARK: Datasource & Delegates
     
-    func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt{
-        return UInt(chartData.count)
+    func numberOfLinesInLineChartView(lineChartView: JBLineChartView!) -> UInt {
+        return 1
     }
     
-    func barChartView(barChartView: JBBarChartView, heightForBarViewAtIndex index: UInt) -> CGFloat{
-        return CGFloat(chartData[Int(index)])
+    func lineChartView(lineChartView: JBLineChartView!, numberOfVerticalValuesAtLineIndex lineIndex: UInt) -> UInt {
+        if (lineIndex == 0){
+            return UInt(chartData.count)
+        }
+        return 0
     }
     
-    func barChartView(barChartView: JBBarChartView, colorForBarViewAtIndex index: UInt) -> UIColor!{
-        return (index % 2 == 0) ? UIColor.lightGrayColor() : UIColor.cyanColor()
+    func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
+        if (lineIndex == 0){
+            return CGFloat(chartData[Int(horizontalIndex)])
+        }
+        return 0
     }
     
-    // MARK: Delegates
-    
-    func barChartView(barChartView: JBBarChartView, didSelectBarAtIndex index: UInt){
-    
-        let data = chartData[Int(index)]
-        let key = chartLegend[Int(index)]
-        
-        footerLabel.text = "the data is: \(data) and key: \(key)"
+    func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+        if (lineIndex == 0){
+            return UIColor.lightGrayColor()
+        }
+        return UIColor.lightGrayColor()
     }
     
-    func didDeselectBarChartView(barChartView: JBBarChartView!){
+    func lineChartView(lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
+        return false
+    }
     
-        footerLabel.text = ""
+    func lineChartView(lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
+        return UIColor.lightGrayColor()
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
+        return true
+    }
+    
+    //
+    func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt) {
+        if (lineIndex == 0){
+            let data = chartData[Int(horizontalIndex)]
+            let key = chartLegend[Int(horizontalIndex)]
+            infoLabel.text = "the data is: \(data) and key: \(key)"
+        }
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, fillColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+        return UIColor.cyanColor()
+    }
+    
+    func didDeselectBarChartView(lineChartView: JBLineChartView!){
+    
+        infoLabel.text = ""
     }
     
     
