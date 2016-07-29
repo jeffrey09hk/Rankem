@@ -44,6 +44,23 @@ class DetailStatViewController: UIViewController, JBBarChartViewDataSource, JBBa
     
         statChartView.setState(.Collapsed, animated: false)
         
+        
+        // header footer
+        var footer = UILabel(frame: CGRectMake(0, 0, statChartView.frame.width, 16))
+        footer.textColor = UIColor.whiteColor()
+        footer.text = "\(chartLegend[0]) to \(chartLegend[chartLegend.count - 1])"
+        footer.textAlignment = NSTextAlignment.Center
+        
+        var header = UILabel(frame: CGRectMake(0, 0, statChartView.frame.width, 50))
+        header.textColor = UIColor.whiteColor()
+        header.font = UIFont.systemFontOfSize(24)
+        header.text = "this is the header"
+        header.textAlignment = NSTextAlignment.Center
+        
+        // add footer and header to the chart
+        statChartView.footerView = footer
+        statChartView.headerView = header
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -52,7 +69,7 @@ class DetailStatViewController: UIViewController, JBBarChartViewDataSource, JBBa
         statChartView.reloadData()
         
         // userInfo is for passing data to the showChart method
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("showChart"), userInfo: nil, repeats: false)
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: Selector("showChart"), userInfo: nil, repeats: false)
     }
     
     override func viewDidDisappear(animated: Bool) {
