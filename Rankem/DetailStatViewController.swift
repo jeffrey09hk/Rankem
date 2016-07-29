@@ -67,9 +67,10 @@ class DetailStatViewController: UIViewController, JBLineChartViewDataSource, JBL
         super.viewDidAppear(animated)
         
         statChartView.reloadData()
+        showChart()
         
         // userInfo is for passing data to the showChart method
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: Selector("showChart"), userInfo: nil, repeats: false)
+        //var timer = NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: Selector("showChart"), userInfo: nil, repeats: false)
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -125,7 +126,7 @@ class DetailStatViewController: UIViewController, JBLineChartViewDataSource, JBL
         return true
     }
     
-    //
+    
     func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt) {
         if (lineIndex == 0){
             let data = chartData[Int(horizontalIndex)]

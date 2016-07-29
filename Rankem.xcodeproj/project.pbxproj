@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8F4C97345ACF69C13E50C10F /* Pods_Rankem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D691AE8C6FD495C58BCFA78 /* Pods_Rankem.framework */; };
 		FE20E9531D39489A0061084F /* webViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20E9521D39489A0061084F /* webViewController.swift */; };
+		FE2EE1061D4BD9A30012A587 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2EE1051D4BD9A30012A587 /* RealmHelper.swift */; };
 		FE68EEE51D3823E5005EF0DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE68EEE41D3823E5005EF0DF /* AppDelegate.swift */; };
 		FE68EEE71D3823E5005EF0DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE68EEE61D3823E5005EF0DF /* ViewController.swift */; };
 		FE68EEEA1D3823E5005EF0DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE68EEE81D3823E5005EF0DF /* Main.storyboard */; };
@@ -47,7 +48,9 @@
 		54EDC280ED6A84E3999D7460 /* Pods-Rankem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rankem.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rankem/Pods-Rankem.release.xcconfig"; sourceTree = "<group>"; };
 		6EB1F1F83927CAC05AE065E3 /* Pods-Rankem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rankem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rankem/Pods-Rankem.debug.xcconfig"; sourceTree = "<group>"; };
 		FE20E9521D39489A0061084F /* webViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webViewController.swift; sourceTree = "<group>"; };
-		FE68EEE11D3823E5005EF0DF /* Rankem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Rankem.app; path = "/Users/Dante/Documents/Xcode Projects/Rankem/build/Debug-iphoneos/Rankem.app"; sourceTree = "<absolute>"; };
+		FE2EE1021D4BC1D00012A587 /* Rankem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rankem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE2EE1031D4BC1D00012A587 /* JBChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JBChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE2EE1051D4BD9A30012A587 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		FE68EEE41D3823E5005EF0DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE68EEE61D3823E5005EF0DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FE68EEE91D3823E5005EF0DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,7 +59,6 @@
 		FE68EEF01D3823E5005EF0DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEAED3C81D3ECA1100FE4F93 /* statViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statViewController.swift; sourceTree = "<group>"; };
 		FEBCC81B1D46AD9A00995737 /* DetailStatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailStatViewController.swift; sourceTree = "<group>"; };
-		FEE48F501D4ABE9700A832A3 /* JBChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JBChart.framework; path = "/Users/Dante/Documents/Xcode Projects/Rankem/build/Debug-iphoneos/JBChart.framework"; sourceTree = "<absolute>"; };
 		FEE48F521D4ABE9700A832A3 /* JBChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBChart.h; sourceTree = "<group>"; };
 		FEE48F541D4ABE9700A832A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +99,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FE2EE1041D4BD9880012A587 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FE2EE1051D4BD9A30012A587 /* RealmHelper.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		FE68EED81D3823E5005EF0DF = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,8 @@
 				BA4294F192362AAFF460AA13 /* Pods */,
 				FEE48F511D4ABE9700A832A3 /* JBChart */,
 				69EFD02CDBD022D88651A83E /* Frameworks */,
+				FE2EE1021D4BC1D00012A587 /* Rankem.app */,
+				FE2EE1031D4BC1D00012A587 /* JBChart.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +128,7 @@
 				FE20E9521D39489A0061084F /* webViewController.swift */,
 				FEBCC81B1D46AD9A00995737 /* DetailStatViewController.swift */,
 				FE68EEE81D3823E5005EF0DF /* Main.storyboard */,
+				FE2EE1041D4BD9880012A587 /* Helper */,
 				FE68EEEB1D3823E5005EF0DF /* Assets.xcassets */,
 				FE68EEED1D3823E5005EF0DF /* LaunchScreen.storyboard */,
 				FE68EEF01D3823E5005EF0DF /* Info.plist */,
@@ -165,7 +178,7 @@
 			);
 			name = Rankem;
 			productName = Rankem;
-			productReference = FE68EEE11D3823E5005EF0DF /* Rankem.app */;
+			productReference = FE2EE1021D4BC1D00012A587 /* Rankem.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FEE48F4F1D4ABE9700A832A3 /* JBChart */ = {
@@ -183,7 +196,7 @@
 			);
 			name = JBChart;
 			productName = JBChart;
-			productReference = FEE48F501D4ABE9700A832A3 /* JBChart.framework */;
+			productReference = FE2EE1031D4BC1D00012A587 /* JBChart.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -297,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEAED3C91D3ECA1100FE4F93 /* statViewController.swift in Sources */,
+				FE2EE1061D4BD9A30012A587 /* RealmHelper.swift in Sources */,
 				FE20E9531D39489A0061084F /* webViewController.swift in Sources */,
 				FEBCC81C1D46AD9A00995737 /* DetailStatViewController.swift in Sources */,
 				FE68EEE71D3823E5005EF0DF /* ViewController.swift in Sources */,
@@ -516,6 +530,7 @@
 				FEE48F5A1D4ABE9800A832A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
