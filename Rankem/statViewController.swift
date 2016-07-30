@@ -16,11 +16,8 @@ class statViewController: UIViewController{
     
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var fullnameLabel: UILabel!
-//    @IBOutlet weak var followingLabel: UILabel!
-//    @IBOutlet weak var followedByLabel: UILabel!
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var topPicture: UIImageView!
-//    @IBOutlet weak var rankingLabel: UILabel!
     @IBOutlet weak var statScroll: UIScrollView!
     @IBOutlet weak var rankingBar: MBCircularProgressBarView!
     
@@ -28,12 +25,13 @@ class statViewController: UIViewController{
     var token: String = ""
     var userID: String = ""
     var fullName: String = ""
-    var fansCount: Int = 0
-    var followCount: String = ""
+    dynamic var fansCount: Int = 0
+    dynamic var followCount: String = ""
     var profilePicLink: String = ""
     
-    var likeCount: Int = 0
-    var commentCount: Int = 0
+    dynamic var likeCount: Int = 0
+    dynamic var commentCount: Int = 0
+    var ratioIndex = [Float]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,9 +77,6 @@ class statViewController: UIViewController{
                     
                     // Assign value to labels on page
                     self.fullnameLabel.text = self.fullName
-//                    self.followingLabel.text = self.followCount
-//                    self.followedByLabel.text = String(self.fansCount)
-                    
                     self.imSuperPopular()
                     
                 }
@@ -98,7 +93,7 @@ class statViewController: UIViewController{
         
         // Download picture from url:
         let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (responseData, responseUrl, error) -> Void in
-            // if responseData is not null...
+            // if responseData is not nil
             if let data = responseData{
                 // execute in UI thread
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -124,13 +119,21 @@ class statViewController: UIViewController{
                     var highestLikeCount: Int = 0
                     var pos: Int = 0
                     
-                    print("set likeCount")
-                    
                     // Sandbox mode only allow 20 pics
                     for counter in 0...19{
                         // get the total like and comment count
                         self.likeCount += mediaData["data"][counter]["likes"]["count"].intValue
                         self.commentCount += mediaData["data"][counter]["comments"]["count"].intValue
+                        
+                        // Calculate Likes to comment ratio and append into the array
+                        if (mediaData["data"][counter]["comments"]["count"].intValue == 0){
+                            self.ratioIndex.append(0)
+                        }
+                        else{
+                            let ratio = Float(mediaData["data"][counter]["likes"]["count"].intValue) / Float(mediaData["data"][counter]["comments"]["count"].intValue)
+                            self.ratioIndex.append(Float(ratio))
+                            
+                        }
                         
                         // Find the picture with the highest amount of likes
                         if mediaData["data"][counter]["likes"]["count"].intValue > highestLikeCount{
@@ -145,13 +148,11 @@ class statViewController: UIViewController{
                     // get the thumbnail of the most liked picture and link to the imgView
                     let topPicLink = String(mediaData["data"][pos]["images"]["thumbnail"]["url"])
                     
-                    
                     // Make the picture circular
                     statViewController.loadImageFromUrl(topPicLink, view: self.topPicture)
                     self.topPicture.layer.cornerRadius = self.profilePic.frame.size.height / 2
-                     self.topPicture.layer.cornerRadius = self.profilePic.frame.size.width / 2
+                    self.topPicture.layer.cornerRadius = self.profilePic.frame.size.width / 2
                     self.topPicture.clipsToBounds = true
-                    
                     
                     self.imSuperPopular()
                     
@@ -161,17 +162,18 @@ class statViewController: UIViewController{
             }
         } // end of alamofire
     } // end of getMediaInfo
-    
-    
+
     func imSuperPopular(){
         
         let weightedComments = self.commentCount * 5
         let weightedFans = self.fansCount * 10
         let score: Int = weightedComments + weightedFans + self.likeCount
-//        self.rankingLabel.text = String(score)
+        
+        // set the ranking value to the progress bar
         self.rankingBar.maxValue = CGFloat(score)
         self.rankingBar.setValue(CGFloat(score), animateWithDuration: 0.8)
         self.rankingBar.progressLineWidth = (CGFloat(3.5))
+        print("these are the ratio: \(ratioIndex)")
     }
     
     
@@ -179,8 +181,10 @@ class statViewController: UIViewController{
         let destVC: DetailStatViewController = segue.destinationViewController as! DetailStatViewController
         
         // passing the token to the DetailStatViewController
-       //  destVC.token = self.token
-//        destVC.userID = self.userID
+        // use this for the follower list
+        destVC.token = self.token
+        destVC.userID = self.userID
+        destVC.ratioIndex = self.ratioIndex
     }
 
     

@@ -17,17 +17,17 @@ import JBChartView
 
 class DetailStatViewController: UIViewController, JBLineChartViewDataSource, JBLineChartViewDelegate{
     
-    
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var statChartView: JBLineChartView!
     
     var token: String = ""
     var userID: String = ""
     var testVal: CGFloat = 0.0
+    var ratioIndex = [Float]()
     
-    // Count of chart Legend need to be the same as the count of chartData
-    var chartLegend = ["a", "b", "c", "d", "e", "f", ]
-    var chartData = [10, 30, 40, 20, 90, 30]
+    
+    // The count of chart Legend need to be the same as the count of ratioIndex
+    var chartLegend = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +47,8 @@ class DetailStatViewController: UIViewController, JBLineChartViewDataSource, JBL
         
         // header footer
         let footer = UILabel(frame: CGRectMake(0, 0, statChartView.frame.width, 16))
-        footer.textColor = UIColor.whiteColor()
-        footer.text = "\(chartLegend[0]) to \(chartLegend[chartLegend.count - 1])"
+        footer.textColor = UIColor.yellowColor()
+        footer.text = "Most recent 20 Posts"
         footer.textAlignment = NSTextAlignment.Center
         
         let header = UILabel(frame: CGRectMake(0, 0, statChartView.frame.width, 50))
@@ -95,68 +95,91 @@ class DetailStatViewController: UIViewController, JBLineChartViewDataSource, JBL
     
     func lineChartView(lineChartView: JBLineChartView!, numberOfVerticalValuesAtLineIndex lineIndex: UInt) -> UInt {
         if (lineIndex == 0){
-            return UInt(chartData.count)
+            return UInt(ratioIndex.count)
         }
         return 0
     }
     
     func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
         if (lineIndex == 0){
-            return CGFloat(chartData[Int(horizontalIndex)])
+            return CGFloat(ratioIndex[Int(horizontalIndex)])
         }
         return 0
     }
     
+    // Setting the color of the top line of the graph
     func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+        let turftsBlue = hexStringToUIColor("#3F88C5")
         if (lineIndex == 0){
-            return UIColor.lightGrayColor()
+            return turftsBlue
         }
-        return UIColor.lightGrayColor()
+        return turftsBlue
     }
     
+    // Whether to show a dot for every data point of the graph
     func lineChartView(lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
         return false
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.lightGrayColor()
-    }
-    
+    // Smooth angle on the line
     func lineChartView(lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
         return true
     }
     
     
+    // changing the info lable according to the selection of the graph
     func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt) {
         if (lineIndex == 0){
-            let data = chartData[Int(horizontalIndex)]
+            let data = ratioIndex[Int(horizontalIndex)]
             let key = chartLegend[Int(horizontalIndex)]
             infoLabel.text = "the data is: \(data) and key: \(key)"
         }
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, fillColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.cyanColor()
+    // the color of selection
+    func lineChartView(lineChartView: JBLineChartView!, verticalSelectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+        return UIColor.redColor()
     }
     
-    func didDeselectBarChartView(lineChartView: JBLineChartView!){
     
+    // change the color of the graph during selection
+    func lineChartView(lineChartView: JBLineChartView!, selectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+        return UIColor.blueColor()
+    }
+    
+    
+    // filling the line chart
+//    func lineChartView(lineChartView: JBLineChartView!, fillColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+//        return UIColor.cyanColor()
+//    }
+    
+    // Reset the text when deselect
+    func didDeselectBarChartView(lineChartView: JBLineChartView!){
         infoLabel.text = ""
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-}
+    // convert hex color to UIcolor
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
+        
+        if (cString.hasPrefix("#")) {
+            cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.grayColor()
+        }
+        
+        var rgbValue:UInt32 = 0
+        NSScanner(string: cString).scanHexInt(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+   
+} // end of class

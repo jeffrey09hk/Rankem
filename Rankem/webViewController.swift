@@ -47,14 +47,11 @@ class webViewController: UIViewController, UIWebViewDelegate{
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool{
         
-       // print("main: \(request.mainDocumentURL!)")
-        
         // getting the token from the redirect URI
         
         if request.mainDocumentURL != nil{
             let parts = String(request.mainDocumentURL!)
             token = parts.componentsSeparatedByString("=")[1]
-//            print ("this is the part: \(token)")
             
             // transition to the stat page after we get the token
             if parts.componentsSeparatedByString("=")[0] == "https://www.example.com/#access_token"{
