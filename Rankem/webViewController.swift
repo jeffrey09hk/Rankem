@@ -17,10 +17,15 @@ class webViewController: UIViewController, UIWebViewDelegate{
     var token: String = ""
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        webViewer.backgroundColor = UIColor.clearColor()
         // hide the navigation bar
         self.navigationController!.navigationBar.hidden = true
+
+        super.viewDidLoad()
+        // hide the navigation bar
+        self.navigationController!.navigationBar.hidden = true
+
+        webViewer.backgroundColor = UIColor.clearColor()
+        
         let clientID: String = "c1838847866d40dfb3c2ce0a30d1d1d5"
         let redirectURI: String = "https://www.example.com"
         let url = NSURL(string: "https://api.instagram.com/oauth/authorize/?client_id=\(clientID)&redirect_uri=\(redirectURI)&response_type=token&scope=basic+public_content+follower_list+comments+relationships+likes")

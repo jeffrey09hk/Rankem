@@ -56,5 +56,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>texgyreadventor-bold.otf</string>
+		<string>texgyreadventor-bolditalic.otf</string>
+		<string>texgyreadventor-italic.otf</string>
+		<string>texgyreadventor-regular.otf</string>
+	</array>
 </dict>
 </plist>

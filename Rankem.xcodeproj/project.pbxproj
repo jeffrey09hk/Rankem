@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		8F4C97345ACF69C13E50C10F /* Pods_Rankem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D691AE8C6FD495C58BCFA78 /* Pods_Rankem.framework */; };
 		FE20E9531D39489A0061084F /* webViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20E9521D39489A0061084F /* webViewController.swift */; };
+		FE27623D1D4FEF9700989F6D /* texgyreadventor-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE2762391D4FEF9700989F6D /* texgyreadventor-bold.otf */; };
+		FE27623E1D4FEF9700989F6D /* texgyreadventor-bolditalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE27623A1D4FEF9700989F6D /* texgyreadventor-bolditalic.otf */; };
+		FE27623F1D4FEF9700989F6D /* texgyreadventor-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE27623B1D4FEF9700989F6D /* texgyreadventor-italic.otf */; };
+		FE2762401D4FEF9700989F6D /* texgyreadventor-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE27623C1D4FEF9700989F6D /* texgyreadventor-regular.otf */; };
 		FE2EE1061D4BD9A30012A587 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2EE1051D4BD9A30012A587 /* RealmHelper.swift */; };
 		FE68EEE51D3823E5005EF0DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE68EEE41D3823E5005EF0DF /* AppDelegate.swift */; };
 		FE68EEE71D3823E5005EF0DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE68EEE61D3823E5005EF0DF /* ViewController.swift */; };
@@ -48,6 +52,10 @@
 		54EDC280ED6A84E3999D7460 /* Pods-Rankem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rankem.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rankem/Pods-Rankem.release.xcconfig"; sourceTree = "<group>"; };
 		6EB1F1F83927CAC05AE065E3 /* Pods-Rankem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rankem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rankem/Pods-Rankem.debug.xcconfig"; sourceTree = "<group>"; };
 		FE20E9521D39489A0061084F /* webViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webViewController.swift; sourceTree = "<group>"; };
+		FE2762391D4FEF9700989F6D /* texgyreadventor-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "texgyreadventor-bold.otf"; sourceTree = "<group>"; };
+		FE27623A1D4FEF9700989F6D /* texgyreadventor-bolditalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "texgyreadventor-bolditalic.otf"; sourceTree = "<group>"; };
+		FE27623B1D4FEF9700989F6D /* texgyreadventor-italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "texgyreadventor-italic.otf"; sourceTree = "<group>"; };
+		FE27623C1D4FEF9700989F6D /* texgyreadventor-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "texgyreadventor-regular.otf"; sourceTree = "<group>"; };
 		FE2EE1021D4BC1D00012A587 /* Rankem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rankem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2EE1031D4BC1D00012A587 /* JBChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JBChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2EE1051D4BD9A30012A587 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
@@ -99,6 +107,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FE2762381D4FEF8300989F6D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FE2762391D4FEF9700989F6D /* texgyreadventor-bold.otf */,
+				FE27623A1D4FEF9700989F6D /* texgyreadventor-bolditalic.otf */,
+				FE27623B1D4FEF9700989F6D /* texgyreadventor-italic.otf */,
+				FE27623C1D4FEF9700989F6D /* texgyreadventor-regular.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		FE2EE1041D4BD9880012A587 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +141,7 @@
 		FE68EEE31D3823E5005EF0DF /* Rankem */ = {
 			isa = PBXGroup;
 			children = (
+				FE2762381D4FEF8300989F6D /* Fonts */,
 				FE68EEE41D3823E5005EF0DF /* AppDelegate.swift */,
 				FE68EEE61D3823E5005EF0DF /* ViewController.swift */,
 				FEAED3C81D3ECA1100FE4F93 /* statViewController.swift */,
@@ -241,9 +261,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE27623D1D4FEF9700989F6D /* texgyreadventor-bold.otf in Resources */,
 				FE68EEEF1D3823E5005EF0DF /* LaunchScreen.storyboard in Resources */,
+				FE27623E1D4FEF9700989F6D /* texgyreadventor-bolditalic.otf in Resources */,
 				FE68EEEC1D3823E5005EF0DF /* Assets.xcassets in Resources */,
+				FE2762401D4FEF9700989F6D /* texgyreadventor-regular.otf in Resources */,
 				FE68EEEA1D3823E5005EF0DF /* Main.storyboard in Resources */,
+				FE27623F1D4FEF9700989F6D /* texgyreadventor-italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

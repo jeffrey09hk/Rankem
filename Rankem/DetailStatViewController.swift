@@ -19,11 +19,13 @@ class DetailStatViewController: UIViewController, JBLineChartViewDataSource, JBL
     
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var statChartView: JBLineChartView!
-    
+
+
     var token: String = ""
     var userID: String = ""
     var testVal: CGFloat = 0.0
-    var ratioIndex = [Float]()
+    var maxIndex: Double = 0.0
+    var ratioIndex = [Double]()
     
     
     // The count of chart Legend need to be the same as the count of ratioIndex
@@ -33,14 +35,14 @@ class DetailStatViewController: UIViewController, JBLineChartViewDataSource, JBL
         super.viewDidLoad()
         
         //Show the navigationBar
-        self.navigationController!.navigationBar.hidden = false
+        self.navigationController!.navigationBar.hidden = true
         
         // Set up the chart
         statChartView.delegate = self
         statChartView.dataSource = self
         
         statChartView.minimumValue = 0.0
-        statChartView.maximumValue = 10.0
+        statChartView.maximumValue = CGFloat(maxIndex + 5)
     
         statChartView.setState(.Collapsed, animated: false)
         
@@ -48,14 +50,13 @@ class DetailStatViewController: UIViewController, JBLineChartViewDataSource, JBL
         // header footer
         let footer = UILabel(frame: CGRectMake(0, 0, statChartView.frame.width, 16))
         footer.textColor = UIColor.yellowColor()
-        footer.text = "Most recent 20 Posts"
         footer.textAlignment = NSTextAlignment.Center
         
         let header = UILabel(frame: CGRectMake(0, 0, statChartView.frame.width, 50))
         header.textColor = UIColor.whiteColor()
-        header.font = UIFont.systemFontOfSize(24)
-        header.text = "this is the header"
+        header.text = "Likes to Comments Ratio"
         header.textAlignment = NSTextAlignment.Center
+        header.font = UIFont(name: "texgyreadventor-regular", size: 20)
         
         // add footer and header to the chart
         statChartView.footerView = footer
@@ -109,11 +110,11 @@ class DetailStatViewController: UIViewController, JBLineChartViewDataSource, JBL
     
     // Setting the color of the top line of the graph
     func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        let turftsBlue = hexStringToUIColor("#3F88C5")
+        let darkMidNightBlue = hexStringToUIColor("#3DDC97")
         if (lineIndex == 0){
-            return turftsBlue
+            return darkMidNightBlue
         }
-        return turftsBlue
+        return darkMidNightBlue
     }
     
     // Whether to show a dot for every data point of the graph
@@ -132,19 +133,21 @@ class DetailStatViewController: UIViewController, JBLineChartViewDataSource, JBL
         if (lineIndex == 0){
             let data = ratioIndex[Int(horizontalIndex)]
             let key = chartLegend[Int(horizontalIndex)]
-            infoLabel.text = "the data is: \(data) and key: \(key)"
+            infoLabel.font = UIFont(name: "texgyreadventor-regular", size: 18)
+            infoLabel.text = "The ratio is: \(data)"
         }
     }
     
     // the color of selection
     func lineChartView(lineChartView: JBLineChartView!, verticalSelectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.redColor()
+        return UIColor.lightTextColor()
     }
     
     
     // change the color of the graph during selection
     func lineChartView(lineChartView: JBLineChartView!, selectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.blueColor()
+        let darkMidNightBlue = hexStringToUIColor("#3DDC97")
+        return darkMidNightBlue
     }
     
     
@@ -154,10 +157,9 @@ class DetailStatViewController: UIViewController, JBLineChartViewDataSource, JBL
 //    }
     
     // Reset the text when deselect
-    func didDeselectBarChartView(lineChartView: JBLineChartView!){
+    func didDeselectLineInLineChartView(lineChartView: JBLineChartView!) {
         infoLabel.text = ""
     }
-    
     
     // convert hex color to UIcolor
     func hexStringToUIColor (hex:String) -> UIColor {

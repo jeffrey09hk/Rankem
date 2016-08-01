@@ -31,7 +31,8 @@ class statViewController: UIViewController{
     
     dynamic var likeCount: Int = 0
     dynamic var commentCount: Int = 0
-    var ratioIndex = [Float]()
+    var ratioIndex = [Double]()
+    var maxIndex: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,7 @@ class statViewController: UIViewController{
         self.navigationController!.navigationBar.hidden = true
         navigationController?.interactivePopGestureRecognizer?.enabled = false
     }
+    
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
     }
     
@@ -126,12 +128,21 @@ class statViewController: UIViewController{
                         self.commentCount += mediaData["data"][counter]["comments"]["count"].intValue
                         
                         // Calculate Likes to comment ratio and append into the array
+                        // If comment count is 0, append 0 to the array as index, prevent from dividing by 0
+                        
                         if (mediaData["data"][counter]["comments"]["count"].intValue == 0){
                             self.ratioIndex.append(0)
                         }
                         else{
-                            let ratio = Float(mediaData["data"][counter]["likes"]["count"].intValue) / Float(mediaData["data"][counter]["comments"]["count"].intValue)
-                            self.ratioIndex.append(Float(ratio))
+                            var ratio = Double(mediaData["data"][counter]["likes"]["count"].intValue) / Double(mediaData["data"][counter]["comments"]["count"].intValue)
+                        
+                            ratio = ratio.roundToPlaces(1)
+                            self.ratioIndex.append(ratio)
+                            
+                            // Get the max index for setting up the graph height in the next view controller
+                            if ratio > self.maxIndex {
+                                self.maxIndex = ratio
+                            }
                             
                         }
                         
@@ -143,7 +154,7 @@ class statViewController: UIViewController{
                         
                     } // end of for loops
                     
-                    self.likeCountLabel.text = String(self.likeCount)
+                    self.likeCountLabel.text = String(mediaData["data"][pos]["likes"]["count"].intValue)
                     
                     // get the thumbnail of the most liked picture and link to the imgView
                     let topPicLink = String(mediaData["data"][pos]["images"]["thumbnail"]["url"])
@@ -171,22 +182,36 @@ class statViewController: UIViewController{
         
         // set the ranking value to the progress bar
         self.rankingBar.maxValue = CGFloat(score)
-        self.rankingBar.setValue(CGFloat(score), animateWithDuration: 0.8)
+        self.rankingBar.setValue(CGFloat(score), animateWithDuration: 1.0)
         self.rankingBar.progressLineWidth = (CGFloat(3.5))
-        print("these are the ratio: \(ratioIndex)")
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destVC: DetailStatViewController = segue.destinationViewController as! DetailStatViewController
-        
+//        self.performSegueWithIdentifier("yo", sender: self)
         // passing the token to the DetailStatViewController
         // use this for the follower list
         destVC.token = self.token
         destVC.userID = self.userID
         destVC.ratioIndex = self.ratioIndex
+        destVC.maxIndex = self.maxIndex
     }
 
     
+//    func roundToPlaces(value: Double, decimalPlaces: Int) -> Double {
+//        let divisor = pow(10.0, Double(decimalPlaces))
+//        return round(value * divisor) / divisor
+//    }
+    
     
 } // end of class
+
+
+extension Double {
+    /// Rounds the double to decimal places value
+    func roundToPlaces(places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return round(self * divisor) / divisor
+    }
+}
