@@ -13,6 +13,7 @@ import SwiftyJSON
 import RealmSwift
 import MBCircularProgressBar
 import JBChartView
+import Social
 
 
 class DetailStatViewController: UIViewController, JBLineChartViewDataSource, JBLineChartViewDelegate{
